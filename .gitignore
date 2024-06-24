@@ -1,0 +1,11 @@
+# vsfiles
+Project/*/\.vs/*
+Project/*/*/\.vs/*
+
+# Logs
+logs
+*.log
+*.tlog
+
+# x64
+**/x64/**
