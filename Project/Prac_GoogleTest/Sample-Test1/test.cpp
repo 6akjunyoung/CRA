@@ -10,11 +10,16 @@ class TestCaseName
 {
 };
 TEST(TestCaseName, TestName1) {
-	EXPECT_EQ(21, getSum(1, 20));
+	Cal cal;
+	EXPECT_EQ(21, cal.getSum(1, 20));
+	EXPECT_EQ(21, cal.getSum(1, 20));
+	EXPECT_EQ(21, cal.getSum(1, 20));
+	EXPECT_EQ(21, cal.getSum(1, 20));
 	EXPECT_TRUE(true);
 }
 TEST(TestCaseName, TestName2) {
-	EXPECT_EQ(6, getSum(1, 5));
+	Cal cal;
+	EXPECT_EQ(6, cal.getSum(1, 5));
 	EXPECT_TRUE(true);
 }
 TEST(TestCaseName, TestName3) {

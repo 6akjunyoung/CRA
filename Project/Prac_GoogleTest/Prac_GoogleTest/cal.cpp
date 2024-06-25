@@ -1,4 +1,9 @@
-int getSum(int a, int b)
+
+class Cal
 {
-	return a + b;
-}
+public:
+	int getSum(int a, int b)
+	{
+		return a + b;
+	}
+};
