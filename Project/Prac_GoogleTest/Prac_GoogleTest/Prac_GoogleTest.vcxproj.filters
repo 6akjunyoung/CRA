@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\cleancode_srp_vehicle">
+      <UniqueIdentifier>{f18155f3-4448-4954-8bd1-79b63d7d2e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\cleancode_ocp_greeter">
+      <UniqueIdentifier>{a1a6d4c3-bda7-41d1-a080-efa21048fbee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\cleancode_isp_bird">
+      <UniqueIdentifier>{78d3ea0f-e363-4173-98da-758b25340f12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\cleancode_dip_racingcar">
+      <UniqueIdentifier>{9cd19321-b357-4ce7-8e66-820643d912b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +50,21 @@
     </ClCompile>
     <ClCompile Include="Socket.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>소스 파일\cleancode_srp_vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="OilBank.cpp">
+      <Filter>소스 파일\cleancode_srp_vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="greeter.cpp">
+      <Filter>소스 파일\cleancode_ocp_greeter</Filter>
+    </ClCompile>
+    <ClCompile Include="bird.cpp">
+      <Filter>소스 파일\cleancode_isp_bird</Filter>
+    </ClCompile>
+    <ClCompile Include="racingcar.cpp">
+      <Filter>소스 파일\cleancode_dip_racingcar</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

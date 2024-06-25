@@ -127,13 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bird.cpp" />
     <ClCompile Include="cal.cpp" />
     <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="greeter.cpp" />
+    <ClCompile Include="OilBank.cpp" />
+    <ClCompile Include="racingcar.cpp" />
     <ClCompile Include="Socket.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameMachine.cpp" />
     <ClCompile Include="phone.cpp" />
     <ClCompile Include="Robot.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
     <ClCompile Include="Zergling.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
