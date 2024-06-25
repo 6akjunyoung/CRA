@@ -21,11 +21,17 @@ public:
 		std::cout << std::endl;
 	}
 
-	void sort(ISort* sort)
+	void sort(void)
 	{
-		sort->sort(numbers);
+		mySort->sort(numbers);
+	}
+
+	void selectSort(Sort* sort)
+	{
+		mySort = sort;
 	}
 
 private:
 	std::vector<int> numbers;
+	Sort* mySort;
 };

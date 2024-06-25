@@ -5,21 +5,25 @@ TEST(TestCaseName, TestName) {
   EXPECT_TRUE(true);
 
   SortMachine objSortMachine;
-
-  std::cout << "Arrange" << std::endl;
-  objSortMachine.show();
-
-  for (int i = 0; i < 10; i++)
+  std::string sortnames[2] = { "selection", "bubble" };
+  
+  for (int i = 0; i < 2; i++)
   {
-	objSortMachine.insert(std::rand() % 5000);
+	  objSortMachine.selectSort(SortFactory::generate(sortnames[i]));
+	  std::cout << "Arrange" << std::endl;
+	  for (int i = 0; i < 10; i++)
+	  {
+		  objSortMachine.insert(std::rand() % 5000);
+	  }
+	  objSortMachine.show();
+
+	  std::cout << "Act";
+	  objSortMachine.sort();
+
+	  std::cout << " & Assert" << std::endl;
+	  objSortMachine.show();
+
+	  objSortMachine.clear();
+	  std::cout << std::endl;
   }
-  objSortMachine.show();
-
-  std::cout << "Act" << std::endl;
-  objSortMachine.sort(SortFactory::generate("bubble"));
-  objSortMachine.show();
-
-  std::cout << "Assert" << std::endl;
-  objSortMachine.clear();
-  objSortMachine.show();
 }

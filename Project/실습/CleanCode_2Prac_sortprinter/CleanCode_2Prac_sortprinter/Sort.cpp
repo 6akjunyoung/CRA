@@ -3,19 +3,9 @@
 #include <algorithm>
 #define interface struct
 
-interface ISort
+interface Sort
 {
 	virtual void sort(std::vector<int>& numbers) = 0;
-};
-
-class Sort : public ISort
-{
-public:
-
-	virtual void sort(std::vector<int>& numbers) override
-	{
-		std::sort(numbers.begin(), numbers.end());
-	}
 };
 
 class BubbleSort : public Sort
@@ -54,7 +44,7 @@ class SelectionSort : public Sort
 class SortFactory
 {
 public:
-	static ISort* generate(std::string algorithm)
+	static Sort* generate(std::string algorithm)
 	{
 		if ("selection" == algorithm) return new SelectionSort();
 		if ("bubble" == algorithm) return new BubbleSort();
