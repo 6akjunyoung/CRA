@@ -9,3 +9,6 @@ logs
 
 # x64
 **/x64/**
+
+# gtest
+**/Microsoft**
