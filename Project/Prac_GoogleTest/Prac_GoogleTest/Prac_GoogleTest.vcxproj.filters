@@ -25,32 +25,11 @@
     <Filter Include="소스 파일\cleancode_dip_racingcar">
       <UniqueIdentifier>{9cd19321-b357-4ce7-8e66-820643d912b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\practice">
+      <UniqueIdentifier>{a43484a8-a3e0-4fc6-be09-b38e1d6e62d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="cal.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Zergling.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMachine.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Calculator.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Robot.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="phone.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Socket.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>소스 파일\cleancode_srp_vehicle</Filter>
     </ClCompile>
@@ -65,6 +44,36 @@
     </ClCompile>
     <ClCompile Include="racingcar.cpp">
       <Filter>소스 파일\cleancode_dip_racingcar</Filter>
+    </ClCompile>
+    <ClCompile Include="cal.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Calculator.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMachine.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="phone.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Zegop.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Zergling.cpp">
+      <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="splitAndSum.cpp">
+      <Filter>소스 파일\practice</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
