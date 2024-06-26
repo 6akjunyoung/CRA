@@ -5,8 +5,10 @@
 
 class ALU
 {
-    int operand1 = -1;
-    int operand2 = -1;
+    static const int INVALID_OPERAND = -1;
+
+    int operand1 = INVALID_OPERAND;
+    int operand2 = INVALID_OPERAND;
     std::string OPCODE = "";
 
 public:
@@ -23,54 +25,45 @@ public:
     }
 
     void enableSignal(Result* r) {
-        if (OPCODE == "ADD" && OPCODE != "MUL" && OPCODE != "SUB") {
-            if (operand1 != -1 && operand2 != -1) {
-                int result = operand1 + operand2;
-                r->setResult(result);
-                r->setStatus(0);
-            }
-            else if (operand1 == -1) {
-                r->setResult(65535);
-                r->setStatus(1);
-            }
-            else if (operand2 == -1) {
-                r->setResult(65535);
-                r->setStatus(2);
-            }
+        int status = getStatus();
+        r->setStatus(status);
+
+        if (Result::STATUS_SUCCESS != status)
+        {
+            r->setResult(Result::RESULT_INVALID);
+            return;
         }
-        else if (OPCODE != "ADD" && OPCODE == "MUL" && OPCODE != "SUB") {
-            if (operand1 != -1 && operand2 != -1) {
-                int result = operand1 * operand2;
-                r->setResult(result);
-                r->setStatus(0);
-            }
-            else if (operand1 == -1) {
-                r->setResult(65535);
-                r->setStatus(1);
-            }
-            else if (operand2 == -1) {
-                r->setResult(65535);
-                r->setStatus(2);
-            }
+
+        if (OPCODE == "ADD") {
+            r->setResult(operand1 + operand2);
         }
-        else if (OPCODE != "ADD" && OPCODE != "MUL" && OPCODE == "SUB") {
-            if (operand1 != -1 && operand2 != -1) {
-                int result = operand1 - operand2;
-                r->setResult(result);
-                r->setStatus(0);
-            }
-            else if (operand1 == -1) {
-                r->setResult(65535);
-                r->setStatus(1);
-            }
-            else if (operand2 == -1) {
-                r->setResult(65535);
-                r->setStatus(2);
-            }
+        else if (OPCODE == "MUL") {
+            r->setResult(operand1 * operand2);
         }
-        else {
-            r->setResult(65535);
-            r->setStatus(3);
+        else if (OPCODE == "SUB") {
+            r->setResult(operand1 - operand2);
         }
+        return;
+    }
+
+private:
+    int getStatus(void)
+    {
+        if (INVALID_OPERAND == operand1)
+        {
+            return Result::STATUS_INVALID_OP1;
+        }
+
+        if (INVALID_OPERAND == operand2)
+        {
+            return Result::STATUS_INVALID_OP2;
+        }
+
+        if (("ADD" != OPCODE) && ("MUL" != OPCODE) && ("SUB" != OPCODE))
+        {
+            return Result::STATUS_INVALID_OPCODE;
+        }
+
+        return Result::STATUS_SUCCESS;
     }
 };

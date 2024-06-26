@@ -2,18 +2,15 @@
 
 class Result
 {
-    int status = -1;
-    int result = 65535;
-
-    //status -1 : 결과 안나옴
-    //status 0 : 성공
-    //status 1 : Operand1이 잘못됨
-    //status 2 : Operand2가 잘못됨
-    //status 3 : OPCODE가 잘못되었음
-
-    //result 65535 : 결과 없음
-
 public:
+    static const int STATUS_SUCCESS = 0;
+    static const int STATUS_INVALID_OP1 = 1;
+    static const int STATUS_INVALID_OP2 = 2;
+    static const int STATUS_INVALID_OPCODE = 3;
+    static const int STATUS_NO_RESULT = -1;
+
+    static const int RESULT_INVALID = 65535;
+
     void setStatus(int status) {
         this->status = status;
     }
@@ -29,4 +26,8 @@ public:
     int getResult() {
         return result;
     }
+
+private:
+    int status = STATUS_NO_RESULT;
+    int result = RESULT_INVALID;
 };
