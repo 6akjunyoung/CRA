@@ -119,6 +119,16 @@ TEST_F(GildedRoseTest, Backstage_Sellin0_Quality49) {
     EXPECT_EQ(0, app.items[0].quality);
 }
 
+TEST_F(GildedRoseTest, Backstage_Sellin1_Quality40) {
+    vector<Item> items = { Item(BACKSTAGE, 1, 40) };
+    GildedRose app(items);
+
+    app.updateQuality();
+
+    EXPECT_EQ(0, app.items[0].sellIn);
+    EXPECT_EQ(43, app.items[0].quality);
+}
+
 TEST_F(GildedRoseTest, Backstage_Sellin12_Quality0) {
     vector<Item> items = { Item(BACKSTAGE, 12, 0) };
     GildedRose app(items);
