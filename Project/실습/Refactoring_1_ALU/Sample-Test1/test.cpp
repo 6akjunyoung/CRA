@@ -18,7 +18,7 @@ class ALUTest : public testing::Test
 {
 protected:
 	ALU m_objALU;
-	Result m_stResult;
+	Output m_stResult;
 	const string ALU_OPCODE[static_cast<int>(eALU_OPCODE::MAX)] = { "ADD", "MUL", "SUB" };
 };
 

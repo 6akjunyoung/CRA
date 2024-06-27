@@ -24,46 +24,67 @@ public:
         this->OPCODE = OPCODE;
     }
 
-    void enableSignal(Result* r) {
-        int status = getStatus();
-        r->setStatus(status);
+    void enableSignal(Output* r) {
+        int result = 0;
 
-        if (Result::STATUS_SUCCESS != status)
+        if (false == isCalcValid())
         {
-            r->setResult(Result::RESULT_INVALID);
+            r->setOutput(getStatus(), static_cast<int>(OUTPUT_RESULT::INVALID));
             return;
         }
 
-        if (OPCODE == "ADD") {
-            r->setResult(operand1 + operand2);
-        }
-        else if (OPCODE == "MUL") {
-            r->setResult(operand1 * operand2);
-        }
-        else if (OPCODE == "SUB") {
-            r->setResult(operand1 - operand2);
-        }
+        result = calcOperand();
+
+        r->setOutput(OUTPUT_STATUS::SUCCESS, result);
+
         return;
     }
 
 private:
-    int getStatus(void)
+    int calcOperand()
+    {
+        int result = 0;
+
+        if (OPCODE == "ADD") {
+            result = operand1 + operand2;
+        }
+        else if (OPCODE == "MUL") {
+            result = operand1 * operand2;
+        }
+        else if (OPCODE == "SUB") {
+            result = operand1 - operand2;
+        }
+        return result;
+    }
+
+    OUTPUT_STATUS getStatus(void)
     {
         if (INVALID_OPERAND == operand1)
         {
-            return Result::STATUS_INVALID_OP1;
+            return OUTPUT_STATUS::INVALID_OP1;
         }
 
         if (INVALID_OPERAND == operand2)
         {
-            return Result::STATUS_INVALID_OP2;
+            return OUTPUT_STATUS::INVALID_OP2;
         }
 
         if (("ADD" != OPCODE) && ("MUL" != OPCODE) && ("SUB" != OPCODE))
         {
-            return Result::STATUS_INVALID_OPCODE;
+            return OUTPUT_STATUS::INVALID_OPCODE;
         }
 
-        return Result::STATUS_SUCCESS;
+        return OUTPUT_STATUS::SUCCESS;
+    }
+
+    bool isCalcValid(void)
+    {
+        if ((INVALID_OPERAND == operand1) ||
+            (INVALID_OPERAND == operand2) ||
+            (("ADD" != OPCODE) && ("MUL" != OPCODE) && ("SUB" != OPCODE)))
+        {
+            return false;
+        }
+        return true;
     }
 };

@@ -12,3 +12,6 @@ logs
 
 # gtest
 **/Microsoft**
+
+# coverage
+**/coverage/**

@@ -1,33 +1,36 @@
 #pragma once
 
-class Result
+enum class OUTPUT_STATUS {
+    NO_RESULT = -1,
+    SUCCESS = 0,
+    INVALID_OP1 = 1,
+    INVALID_OP2 = 2,
+    INVALID_OPCODE = 3,
+};
+
+enum class OUTPUT_RESULT
+{
+    INVALID = 65535,
+};
+
+class Output
 {
 public:
-    static const int STATUS_SUCCESS = 0;
-    static const int STATUS_INVALID_OP1 = 1;
-    static const int STATUS_INVALID_OP2 = 2;
-    static const int STATUS_INVALID_OPCODE = 3;
-    static const int STATUS_NO_RESULT = -1;
-
-    static const int RESULT_INVALID = 65535;
-
-    void setStatus(int status) {
-        this->status = status;
-    }
-
-    void setResult(int result) {
-        this->result = result;
+    void setOutput(OUTPUT_STATUS status, int result)
+    {
+        this->Status = static_cast<int>(status);
+        this->Result = static_cast<int>(result);
     }
 
     int getStatus() {
-        return status;
+        return Status;
     }
 
     int getResult() {
-        return result;
+        return Result;
     }
 
 private:
-    int status = STATUS_NO_RESULT;
-    int result = RESULT_INVALID;
+    int Status = static_cast<int>(OUTPUT_STATUS::NO_RESULT);
+    int Result = static_cast<int>(OUTPUT_RESULT::INVALID);
 };
