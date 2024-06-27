@@ -129,10 +129,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GildedRose.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemOperator.cpp" />
+    <ClCompile Include="ItemOperatorFactory.cpp" />
+    <ClCompile Include="ItemOperatorFactory.h" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GildedRose.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemOperator.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="answer.txt" />

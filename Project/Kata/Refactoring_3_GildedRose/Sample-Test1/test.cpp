@@ -1,5 +1,9 @@
 #include "pch.h"
+
 #include "../Refactoring_3_GildedRose/GildedRose.cpp"
+#include "../Refactoring_3_GildedRose/Item.cpp"
+#include "../Refactoring_3_GildedRose/ItemOperator.cpp"
+#include "../Refactoring_3_GildedRose/ItemOperatorFactory.cpp"
 
 class GildedRoseTest : public testing::Test {
 
