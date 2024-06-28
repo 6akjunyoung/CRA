@@ -24,6 +24,9 @@
     <ClCompile Include="Rental.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="RentalCalculator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Customer.h">
@@ -35,7 +38,7 @@
     <ClInclude Include="Rental.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="RentalCharger.h">
+    <ClInclude Include="RentalCalculator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

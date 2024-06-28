@@ -12,14 +12,10 @@ public:
 
 	string getMovieTitle();
 
-	double getCharge();
+	double getCost();
 	int getPoint();
 
 private:
 	Movie movie;
 	int daysRented;
-
-	double getRegularMovieAmount(int dyasRented);
-	double getNewReleaseMovieAmount(int daysRented);
-	double getChildrenMovieAmount(int daysRented);
 };
