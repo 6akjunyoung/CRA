@@ -13,38 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\cleancode_srp_vehicle">
-      <UniqueIdentifier>{f18155f3-4448-4954-8bd1-79b63d7d2e48}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\cleancode_ocp_greeter">
-      <UniqueIdentifier>{a1a6d4c3-bda7-41d1-a080-efa21048fbee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\cleancode_isp_bird">
-      <UniqueIdentifier>{78d3ea0f-e363-4173-98da-758b25340f12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\cleancode_dip_racingcar">
-      <UniqueIdentifier>{9cd19321-b357-4ce7-8e66-820643d912b2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\practice">
       <UniqueIdentifier>{a43484a8-a3e0-4fc6-be09-b38e1d6e62d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\CleanCode">
+      <UniqueIdentifier>{a7cf94bd-2552-4dd4-bc37-5e5d9cae975a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\CleanCode\cleancode_dip_racingcar">
+      <UniqueIdentifier>{9cd19321-b357-4ce7-8e66-820643d912b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\CleanCode\cleancode_isp_bird">
+      <UniqueIdentifier>{78d3ea0f-e363-4173-98da-758b25340f12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\CleanCode\cleancode_ocp_greeter">
+      <UniqueIdentifier>{a1a6d4c3-bda7-41d1-a080-efa21048fbee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\CleanCode\cleancode_srp_vehicle">
+      <UniqueIdentifier>{f18155f3-4448-4954-8bd1-79b63d7d2e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Refactoring">
+      <UniqueIdentifier>{19d4a574-0160-4578-bd84-79a51ed9e645}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Vehicle.cpp">
-      <Filter>소스 파일\cleancode_srp_vehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="OilBank.cpp">
-      <Filter>소스 파일\cleancode_srp_vehicle</Filter>
-    </ClCompile>
-    <ClCompile Include="greeter.cpp">
-      <Filter>소스 파일\cleancode_ocp_greeter</Filter>
-    </ClCompile>
-    <ClCompile Include="bird.cpp">
-      <Filter>소스 파일\cleancode_isp_bird</Filter>
-    </ClCompile>
-    <ClCompile Include="racingcar.cpp">
-      <Filter>소스 파일\cleancode_dip_racingcar</Filter>
-    </ClCompile>
     <ClCompile Include="cal.cpp">
       <Filter>소스 파일\practice</Filter>
     </ClCompile>
@@ -74,6 +65,24 @@
     </ClCompile>
     <ClCompile Include="splitAndSum.cpp">
       <Filter>소스 파일\practice</Filter>
+    </ClCompile>
+    <ClCompile Include="racingcar.cpp">
+      <Filter>소스 파일\CleanCode</Filter>
+    </ClCompile>
+    <ClCompile Include="bird.cpp">
+      <Filter>소스 파일\CleanCode</Filter>
+    </ClCompile>
+    <ClCompile Include="greeter.cpp">
+      <Filter>소스 파일\CleanCode</Filter>
+    </ClCompile>
+    <ClCompile Include="OilBank.cpp">
+      <Filter>소스 파일\CleanCode</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>소스 파일\CleanCode</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryMethod.cpp">
+      <Filter>소스 파일\Refactoring</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

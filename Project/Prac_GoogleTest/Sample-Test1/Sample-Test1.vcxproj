@@ -109,6 +109,7 @@
     </ClCompile>
     <ClCompile Include="test_oddeven.cpp" />
     <ClCompile Include="test_fixture.cpp" />
+    <ClCompile Include="test_refact.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prac_GoogleTest\Prac_GoogleTest.vcxproj">
