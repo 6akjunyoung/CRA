@@ -1,26 +1,11 @@
-#pragma once
-#include "Movie.cpp";
+#include "Rental.h"
 
-class Rental
+int Rental::getDaysRented()
 {
-public:
-	Rental(Movie& movie, int days_rented)
-		: movie(movie),
-		daysRented(days_rented)
-	{
-	}
+	return daysRented;
+}
 
-	int getDaysRented()
-	{
-		return daysRented;
-	}
-
-	Movie getMovie()
-	{
-		return movie;
-	}
-
-private:
-	Movie movie;
-	int daysRented;
-};
+Movie Rental::getMovie()
+{
+	return movie;
+}
