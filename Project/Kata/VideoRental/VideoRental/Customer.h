@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "Movie.h"
 #include "Rental.h"
 
 using std::string;
@@ -17,9 +18,9 @@ private:
     string name;
     vector<Rental> rentals;
 
-    string getHeader(string customerName);
-    string getMainContents(vector<string> titleList, vector<double> costList);
-    string getFooter(double cost, int point);
+    string getHeader();
+    string getMainContents();
+    string getFooter();
 
     double getTotalAmount();
     int getTotalPoints();
