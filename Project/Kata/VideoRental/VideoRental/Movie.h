@@ -17,7 +17,6 @@ public:
 	}
 
 	int getCategory();
-	void setCategory(int price_code);
 	string getTitle();
 
 private:

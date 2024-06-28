@@ -10,10 +10,16 @@ public:
 	{
 	}
 
-	int getDaysRented();
-	Movie getMovie();
+	string getMovieTitle();
+
+	double getCharge();
+	int getPoint();
 
 private:
 	Movie movie;
 	int daysRented;
+
+	double getRegularMovieAmount(int dyasRented);
+	double getNewReleaseMovieAmount(int daysRented);
+	double getChildrenMovieAmount(int daysRented);
 };
