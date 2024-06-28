@@ -1,8 +1,15 @@
 #include "pch.h"
+
+#if 0
 #include "../VideoRental/Customer.cpp"
 #include "../VideoRental/Rental.cpp"
 #include "../VideoRental/Movie.cpp"
-
+#else
+#include "../VideoRental2/Customer.cpp"
+#include "../VideoRental2/Rental.cpp"
+#include "../VideoRental2/Movie.cpp"
+#include "../VideoRental2/Seller.cpp"
+#endif
 using std::string;
 
 class CustomerTest : public testing::Test {
