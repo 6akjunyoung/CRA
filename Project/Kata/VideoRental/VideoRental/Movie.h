@@ -12,15 +12,15 @@ public:
 
 	Movie(const string& title, int price_code)
 		: title(title),
-		priceCode(price_code)
+		category(price_code)
 	{
 	}
 
-	int getPriceCode();
-	void setPriceCode(int price_code);
+	int getCategory();
+	void setCategory(int price_code);
 	string getTitle();
 
 private:
 	string title;
-	int priceCode;
+	int category;
 };

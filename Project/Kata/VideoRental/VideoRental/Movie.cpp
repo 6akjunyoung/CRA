@@ -1,13 +1,13 @@
 #include "Movie.h"
 
-int Movie::getPriceCode()
+int Movie::getCategory()
 {
-	return priceCode;
+	return category;
 }
 
-void Movie::setPriceCode(int price_code)
+void Movie::setCategory(int price_code)
 {
-	priceCode = price_code;
+	category = price_code;
 }
 
 string Movie::getTitle()
