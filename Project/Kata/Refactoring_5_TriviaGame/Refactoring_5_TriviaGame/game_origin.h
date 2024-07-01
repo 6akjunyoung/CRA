@@ -10,9 +10,9 @@ using std::string;
 using std::list;
 using std::vector;
 
-class Game : public IGame {
+class GameOrigin : public IGame {
 public:
-    Game();
+    GameOrigin();
 
     string createRockQuestion(int index);
     bool isPlayable();

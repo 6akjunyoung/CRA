@@ -1,9 +1,9 @@
-#include "game.h"
+#include "game_origin.h"
 #include <iostream>
 
 using namespace std;
 
-Game::Game() : currentPlayer{ 0 }, places{}, purses{}
+GameOrigin::GameOrigin() : currentPlayer{ 0 }, places{}, purses{}
 {
     for (int i = 0; i < 50; i++) {
         string str1 = "Pop Question " + to_string(i);
@@ -19,18 +19,18 @@ Game::Game() : currentPlayer{ 0 }, places{}, purses{}
     }
 }
 
-string Game::createRockQuestion(int index)
+string GameOrigin::createRockQuestion(int index)
 {
     string indexStr = "Rock Question " + to_string(index);
     return indexStr;
 }
 
-bool Game::isPlayable()
+bool GameOrigin::isPlayable()
 {
     return (howManyPlayers() >= 2);
 }
 
-bool Game::add(string playerName)
+bool GameOrigin::add(string playerName)
 {
     players.push_back(playerName);
     places[howManyPlayers() - 1] = 0;
@@ -42,12 +42,12 @@ bool Game::add(string playerName)
     return true;
 }
 
-int Game::howManyPlayers()
+int GameOrigin::howManyPlayers()
 {
     return (int)players.size();
 }
 
-void Game::rolling(int roll)
+void GameOrigin::rolling(int roll)
 {
     cout << players[currentPlayer] << " is the current player" << endl;
     cout << "They have rolled a " << roll << endl;
@@ -80,7 +80,7 @@ void Game::rolling(int roll)
     }
 }
 
-void Game::askQuestion()
+void GameOrigin::askQuestion()
 {
     if (currentCategory() == "Pop") {
         cout << popQuestions.front() << endl;
@@ -104,7 +104,7 @@ void Game::askQuestion()
 }
 
 
-string Game::currentCategory()
+string GameOrigin::currentCategory()
 {
     if (places[currentPlayer] == 0) return "Pop";
     if (places[currentPlayer] == 4) return "Pop";
@@ -118,7 +118,7 @@ string Game::currentCategory()
     return "Rock";
 }
 
-bool Game::wasCorrectlyAnswered()
+bool GameOrigin::wasCorrectlyAnswered()
 {
     if (inPenaltyBox[currentPlayer]) {
         if (isGettingOutOfPenaltyBox) {
@@ -156,7 +156,7 @@ bool Game::wasCorrectlyAnswered()
     }
 }
 
-bool Game::wrongAnswer()
+bool GameOrigin::wrongAnswer()
 {
     if (inPenaltyBox[currentPlayer]) {
         if (isGettingOutOfPenaltyBox) {
@@ -185,7 +185,7 @@ bool Game::wrongAnswer()
     }
 }
 
-bool Game::didPlayerWin()
+bool GameOrigin::didPlayerWin()
 {
     return !(purses[currentPlayer] == 6);
 }
