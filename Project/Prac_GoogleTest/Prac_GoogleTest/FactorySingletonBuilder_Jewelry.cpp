@@ -85,10 +85,11 @@ private:
 	JewelryFactory& operator=(const JewelryFactory& other) = delete;
 	JewelryFactory(const JewelryFactory& other) = delete;
 };
-
+#if 0
 int main() {
 	JewelryFactory& fac = JewelryFactory::getInstance();
 	Jewelry& mine = fac.makeJewelry("gold", "baby", 1000);
 
 	mine.showInfo();
 }
+#endif
