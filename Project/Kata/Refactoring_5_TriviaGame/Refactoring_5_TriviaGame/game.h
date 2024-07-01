@@ -10,38 +10,63 @@ using std::string;
 using std::list;
 using std::vector;
 
+namespace GAME_CATEGORY
+{
+    enum
+    {
+        NUMBER_POP,
+        NUMBER_SCIENCE,
+        NUMBER_SPORTS,
+        NUMBER_ROCK,
+        NUMBER_COUNT,
+    };
+
+    const string STRING_CATEGORY[NUMBER_COUNT] = {
+        "Pop", "Science", "Sports", "Rock",
+    };
+}
+
+struct PLAYER
+{
+    string name;
+    int places;
+    int purses;
+    bool inJail;
+
+    PLAYER(string name)
+        :name{ name }, places{ 0 }, purses{ 0 }, inJail{ false } {}
+};
+
 class Game : public IGame {
 public:
     Game();
 
-    string createRockQuestion(int index);
-    bool isPlayable();
     bool add(string playerName);
 
-    int howManyPlayers();
     void rolling(int roll);
 
     bool wasCorrectlyAnswered();
     bool wrongAnswer();
 
-
 private:
-    vector<string> players;
-
-    int places[6];
-    int purses[6];
-
-    bool inPenaltyBox[6];
-
-    list<string> popQuestions;
-    list<string> scienceQuestions;
-    list<string> sportsQuestions;
-    list<string> rockQuestions;
-
+    vector<PLAYER> players;
     int currentPlayer;
-    bool isGettingOutOfPenaltyBox;
 
+    const int MAX_QUESTION_NUM = 50;
+    list<string> questions[GAME_CATEGORY::NUMBER_COUNT];
+
+    int getCurrentCategoryNumber();
+    string createQuestion(string category, int index);
+    void moveToNextPlace(int roll);
     void askQuestion();
-    string currentCategory();
-    bool didPlayerWin();
+    bool isGameRemaining(int turn);
+    void correctAnswer();
+    void getOneCoin();
+    void nextTurn(int roll);
+    void incorrectAnswer();
+    void goToJail();
+    bool isInJail();
+    void attemptEscapeFromJail(int roll);
+    void escapeFromJail();
+    bool isChanceToEscapeFromJail(int roll);
 };

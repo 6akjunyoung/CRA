@@ -66,5 +66,7 @@ TEST_P(ParameterizedTestFixture, goldenMaster) {
     string expected = playGame(objGameOrigin, seed);
     string actual = playGame(objGameRefactor, seed);
 
+    // cout << actual;
+
     EXPECT_EQ(expected, actual);
 }
