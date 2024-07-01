@@ -4,11 +4,33 @@
 #include <list>
 #include <vector>
 #include <string>
+#include <queue>
+
 #include "IGame.h"
+#include "Player.cpp"
+#include "Comment.h"
+#include "question.cpp"
 
 using std::string;
 using std::list;
 using std::vector;
+
+
+/*
+Game
+ - 
+감옥 관리자
+ - 조건 검사
+ - 조건이 되면 탈출
+ - 감옥에 들어갈 수 있도록
+Player
+ - 나의 코인
+ - 위치
+ - 감옥인지
+Question
+ - 카드
+ - 위치에 따른 카드 주제
+ */
 
 namespace GAME_CATEGORY
 {
@@ -26,20 +48,11 @@ namespace GAME_CATEGORY
     };
 }
 
-struct PLAYER
-{
-    string name;
-    int places;
-    int purses;
-    bool inJail;
-
-    PLAYER(string name)
-        :name{ name }, places{ 0 }, purses{ 0 }, inJail{ false } {}
-};
-
 class Game : public IGame {
 public:
-    Game();
+    Game()
+        : isGameStarted{ false }, currentPlayer{ nullptr }
+    {}
 
     bool add(string playerName);
 
@@ -49,24 +62,17 @@ public:
     bool wrongAnswer();
 
 private:
-    vector<PLAYER> players;
-    int currentPlayer;
+    queue<Player> players;
+    bool isGameStarted;
+    Player* currentPlayer;
+    Comment comment;
+    QuestionManager questionManager;
 
-    const int MAX_QUESTION_NUM = 50;
     list<string> questions[GAME_CATEGORY::NUMBER_COUNT];
 
-    int getCurrentCategoryNumber();
-    string createQuestion(string category, int index);
-    void moveToNextPlace(int roll);
     void askQuestion();
-    bool isGameRemaining(int turn);
     void correctAnswer();
-    void getOneCoin();
-    void nextTurn(int roll);
-    void incorrectAnswer();
-    void goToJail();
-    bool isInJail();
+    void nextTurn();
     void attemptEscapeFromJail(int roll);
-    void escapeFromJail();
-    bool isChanceToEscapeFromJail(int roll);
+    bool hasChanceToEscapeFromJail(int roll);
 };

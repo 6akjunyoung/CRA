@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../Refactoring_5_TriviaGame/game_origin.cpp"
 #include "../Refactoring_5_TriviaGame/game.cpp"
+#include "../Refactoring_5_TriviaGame/Comment.cpp"
 
 class ParameterizedTestFixture : public testing::TestWithParam<int>
 {

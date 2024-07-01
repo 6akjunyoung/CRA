@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Comment.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="game_origin.cpp" />
     <ClCompile Include="game_runner.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="question.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Comment.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="game_origin.h" />
     <ClInclude Include="IGame.h" />

@@ -3,162 +3,117 @@
 
 using namespace std;
 
-Game::Game() : currentPlayer{ -1 }, players{}
-{
-    for (int i = 0; i < MAX_QUESTION_NUM; i++) {
-        for (int j = 0; j < GAME_CATEGORY::NUMBER_COUNT; j++)
-        {
-            questions[j].push_back(createQuestion(GAME_CATEGORY::STRING_CATEGORY[j], i));
-        }
-    }
-}
-
-string Game::createQuestion(string category, int index)
-{
-    string indexStr = category + " Question " + to_string(index);
-    return indexStr;
-}
-
 bool Game::add(string playerName)
 {
-    PLAYER player(playerName);
-    players.push_back(player);
+    Player player(playerName);
+    players.push(player);
 
-    cout << playerName << " was added" << endl;
-    cout << "They are player number " << players.size() << endl;
+    comment.addPlayer(playerName);
+    comment.showPlayerNumber(players.size());
+
     return true;
 }
 
 void Game::rolling(int roll)
 {
-    nextTurn(roll);
+    nextTurn();
+
+    comment.rollDice(roll);
 
     attemptEscapeFromJail(roll);
-    if (true == isInJail())
+    if (true == currentPlayer->isInJail())
     {
         return;
     }
 
-    moveToNextPlace(roll);
+    currentPlayer->moveToNextLocation(roll);
+    comment.showLocation(currentPlayer->getName(), currentPlayer->getLocation());
 
     askQuestion();
 }
 
 void Game::attemptEscapeFromJail(int roll)
 {
-    if (false == isInJail())
+    if (false == currentPlayer->isInJail())
     {
         return;
     }
 
-    if (true == isChanceToEscapeFromJail(roll))
+    bool isAbleToEscape = hasChanceToEscapeFromJail(roll);
+    if (true == isAbleToEscape)
     {
-        cout << players[currentPlayer].name << " is getting out of the penalty box" << endl;
-        escapeFromJail();
+        currentPlayer->ExitJail();
     }
-    else
-    {
-        cout << players[currentPlayer].name << " is not getting out of the penalty box" << endl;
-    }
-}
 
-void Game::moveToNextPlace(int roll)
-{
-    players[currentPlayer].places = (players[currentPlayer].places + roll) % 12;
-
-    cout << players[currentPlayer].name << "'s new location is " << players[currentPlayer].places << endl;
+    comment.exitJail(currentPlayer->getName(), isAbleToEscape);
 }
 
 void Game::askQuestion()
 {
-    int categoryNumber = getCurrentCategoryNumber();
-    auto& question = questions[categoryNumber];
+    int categoryNumber = questionManager.getCategoryNumber(currentPlayer->getLocation());
+    string category = questionManager.getCategory(categoryNumber);
+    string question = questionManager.popQuestion(categoryNumber);
 
-    cout << "The category is " << GAME_CATEGORY::STRING_CATEGORY[categoryNumber] << endl;
-    cout << question.front() << endl;
-    question.pop_front();
-}
-
-int Game::getCurrentCategoryNumber()
-{
-    return (players[currentPlayer].places % 4);
+    comment.showCategory(category);
+    comment.showQuestion(question);
 }
 
 bool Game::wasCorrectlyAnswered()
 {
-    if (true == isInJail())
+    if (true == currentPlayer->isInJail())
     {
         return true;
     }
 
     correctAnswer();
 
-    return isGameRemaining(currentPlayer);
+    bool gameNotOver = (false == currentPlayer->isWinner());
+
+    return gameNotOver;
 }
 
 bool Game::wrongAnswer()
 {
-    if (true == isInJail()) {
+    if (true == currentPlayer->isInJail()) {
         return true;
     }
 
-    incorrectAnswer();
+    currentPlayer->EnterJail();
+
+    comment.answer(false);
+    comment.enterJail(currentPlayer->getName());
 
     return true;
 }
 
-bool Game::isGameRemaining(int turn)
+void Game::nextTurn()
 {
-    return (players[turn].purses < 6);
-}
+    if (isGameStarted == false)
+    {
+        isGameStarted = true;
+    }
+    else
+    {
+        players.push(*currentPlayer);
+        players.pop();
+    }
 
-void Game::getOneCoin()
-{
-    players[currentPlayer].purses++;
-    cout << players[currentPlayer].name << " now has "
-        << players[currentPlayer].purses << " Gold Coins." << endl;
-}
+    currentPlayer = &players.front();
 
-void Game::nextTurn(int roll)
-{
-    currentPlayer++;
-    currentPlayer %= players.size();
-
-    cout << players[currentPlayer].name << " is the current player" << endl;
-    cout << "They have rolled a " << roll << endl;
+    string name = currentPlayer->getName();
+    comment.showCurrentPlayer(name);
 }
 
 void Game::correctAnswer()
 {
-    cout << "Answer was correct!!!!" << endl;
+    currentPlayer->plusOneCoin();
 
-    getOneCoin();
+    comment.answer(true);
+    comment.showCoin(currentPlayer->getName(), currentPlayer->getCoin());
 }
 
-void Game::incorrectAnswer()
-{
-    cout << "Question was incorrectly answered" << endl;
-    cout << players[currentPlayer].name + " was sent to the penalty box" << endl;
-
-    goToJail();
-}
-
-bool Game::isChanceToEscapeFromJail(int roll)
+bool Game::hasChanceToEscapeFromJail(int roll)
 {
     return (roll % 2 != 0);
 }
 
-bool Game::isInJail()
-{
-    return players[currentPlayer].inJail;
-}
-
-void Game::escapeFromJail()
-{
-    players[currentPlayer].inJail = false;
-}
-
-void Game::goToJail()
-{
-    players[currentPlayer].inJail = true;
-}
