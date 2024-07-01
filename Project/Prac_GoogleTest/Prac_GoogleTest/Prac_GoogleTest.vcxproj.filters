@@ -66,23 +66,40 @@
     <ClCompile Include="splitAndSum.cpp">
       <Filter>소스 파일\practice</Filter>
     </ClCompile>
-    <ClCompile Include="racingcar.cpp">
-      <Filter>소스 파일\CleanCode</Filter>
-    </ClCompile>
-    <ClCompile Include="bird.cpp">
-      <Filter>소스 파일\CleanCode</Filter>
-    </ClCompile>
-    <ClCompile Include="greeter.cpp">
-      <Filter>소스 파일\CleanCode</Filter>
-    </ClCompile>
     <ClCompile Include="OilBank.cpp">
-      <Filter>소스 파일\CleanCode</Filter>
-    </ClCompile>
-    <ClCompile Include="Vehicle.cpp">
       <Filter>소스 파일\CleanCode</Filter>
     </ClCompile>
     <ClCompile Include="FactoryMethod.cpp">
       <Filter>소스 파일\Refactoring</Filter>
     </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>소스 파일\CleanCode\cleancode_srp_vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="racingcar.cpp">
+      <Filter>소스 파일\CleanCode\cleancode_dip_racingcar</Filter>
+    </ClCompile>
+    <ClCompile Include="greeter.cpp">
+      <Filter>소스 파일\CleanCode\cleancode_ocp_greeter</Filter>
+    </ClCompile>
+    <ClCompile Include="bird.cpp">
+      <Filter>소스 파일\CleanCode\cleancode_isp_bird</Filter>
+    </ClCompile>
+    <ClCompile Include="BuilderPattern.cpp">
+      <Filter>소스 파일\Refactoring</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>소스 파일\Refactoring</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton_Logger.cpp">
+      <Filter>소스 파일\Refactoring</Filter>
+    </ClCompile>
+    <ClCompile Include="FactorySingletonBuilder_Jewelry.cpp">
+      <Filter>소스 파일\Refactoring</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Logfile.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>
