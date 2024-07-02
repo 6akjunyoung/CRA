@@ -132,6 +132,7 @@
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="FactorySingletonBuilder_Jewelry.cpp" />
     <ClCompile Include="FactoryMethod.cpp" />
+    <ClCompile Include="Fibo.cpp" />
     <ClCompile Include="greeter.cpp" />
     <ClCompile Include="BuilderPattern.cpp" />
     <ClCompile Include="Singleton_Logger.cpp" />

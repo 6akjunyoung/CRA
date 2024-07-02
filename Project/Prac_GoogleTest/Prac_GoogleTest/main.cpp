@@ -1,4 +1,4 @@
-#if 0
+#if 01
 int main()
 {
 	return 0;

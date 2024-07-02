@@ -34,6 +34,9 @@
     <Filter Include="소스 파일\Refactoring">
       <UniqueIdentifier>{19d4a574-0160-4578-bd84-79a51ed9e645}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\TDD">
+      <UniqueIdentifier>{0612d8ed-ef12-47b4-b9e7-a010f48f76a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cal.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="FactorySingletonBuilder_Jewelry.cpp">
       <Filter>소스 파일\Refactoring</Filter>
+    </ClCompile>
+    <ClCompile Include="Fibo.cpp">
+      <Filter>소스 파일\TDD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

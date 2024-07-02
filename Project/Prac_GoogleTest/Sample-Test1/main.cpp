@@ -23,3 +23,11 @@
 //
 //    return RUN_ALL_TESTS();
 //}
+
+//int main(int argc, char* argv[])
+//{
+//    testing::InitGoogleTest(&argc, argv);
+//    testing::AddGlobalTestEnvironment(new GlobalEnv);
+//
+//    return RUN_ALL_TESTS();
+//}
