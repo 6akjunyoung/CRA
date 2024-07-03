@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="account.cpp" />
     <ClCompile Include="bird.cpp" />
     <ClCompile Include="cal.cpp" />
     <ClCompile Include="Calculator.cpp" />

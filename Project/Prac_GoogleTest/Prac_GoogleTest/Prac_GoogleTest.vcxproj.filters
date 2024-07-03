@@ -102,6 +102,9 @@
     <ClCompile Include="Fibo.cpp">
       <Filter>소스 파일\TDD</Filter>
     </ClCompile>
+    <ClCompile Include="account.cpp">
+      <Filter>소스 파일\TDD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logfile.txt">
