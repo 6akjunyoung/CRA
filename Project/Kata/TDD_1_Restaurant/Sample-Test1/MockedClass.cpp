@@ -1,3 +1,6 @@
+#include "gtest/gtest.h"
+#include "gmock/gmock.h"
+
 #include "../TDD_1_Restaurant/MailSender.cpp"
 #include "../TDD_1_Restaurant/SmsSender.cpp"
 #include "../TDD_1_Restaurant/BookingScheduler.cpp"
@@ -6,6 +9,13 @@
 #include <stdexcept>
 
 using namespace std;
+
+class MockedCustomer : public Customer
+{
+public:
+	MockedCustomer(string name, string phoneNumber) : Customer{ name, phoneNumber } {}
+	MOCK_METHOD(string, getEmail, (), ());
+};
 
 class TestableBookingScheduler : public BookingScheduler
 {

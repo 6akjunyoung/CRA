@@ -1,7 +1,7 @@
-#include "pch.h"
+#include "gtest/gtest.h"
+#include "gmock/gmock.h"
 #include "../TDD_1_Restaurant/BookingScheduler.cpp"
 #include "MockedClass.cpp"
-
 
 #include <iostream>
 #include <stdexcept>
@@ -19,6 +19,12 @@ protected:
 
 		bookingScheduler.setSmsSender(&testableSmsSender);
 		bookingScheduler.setMailSender(&testableMailSender);
+
+		EXPECT_CALL(CUSTOMER, getEmail, (), ())
+			.WillRepeatedly(testing::Return(""));
+
+		EXPECT_CALL(CUSTOMER_WITH_MAIL, getEmail, (), ())
+			.WillRepeatedly(testing::Return("test@test.com"));
 	}
 
 public:
@@ -40,8 +46,10 @@ public:
 	tm ON_THE_HOUR;
 	tm SUNDAY_ON_THE_HOUR;
 	tm MONDAY_ON_THE_HOUR;
-	Customer CUSTOMER{ "Fake name", "010-1234-5678" };
-	Customer CUSTOMER_WITH_MAIL{ "Fake name", "010-1234-5678", "test@test.com" };
+
+	MockedCustomer CUSTOMER{ "Fake name", "010-1234-5678" };
+	MockedCustomer CUSTOMER_WITH_MAIL{ "Fake name", "010-1234-5678" };
+
 	const int UNDER_CAPACITY = 1;
 	const int CAPACITY_PER_HOUR = 3;
 
@@ -157,12 +165,12 @@ TEST_F(BookingItem, t8) { //현재날짜가_일요일인_경우_예약불가_예
 
 TEST_F(BookingItem, t9) { //현재날짜가_일요일이_아닌경우_예약가능) {
 	//arrange
-	BookingScheduler* sundayScheduler = new TestableBookingScheduler(CAPACITY_PER_HOUR, MONDAY_ON_THE_HOUR);
+	BookingScheduler* mondayScheduler = new TestableBookingScheduler(CAPACITY_PER_HOUR, MONDAY_ON_THE_HOUR);
 	Schedule* schedule = new Schedule{ ON_THE_HOUR, UNDER_CAPACITY, CUSTOMER };
 
 	//act
-	sundayScheduler->addSchedule(schedule);
+	mondayScheduler->addSchedule(schedule);
 
 	//assert
-	sundayScheduler->hasSchedule(schedule);
+	mondayScheduler->hasSchedule(schedule);
 }
